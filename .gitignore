@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.vs/
+*.slnx
+*.suo
+*.sqlite
+VSWorkspaceState.json
+DocumentLayout.json
+
+# Large model files (exceeds GitHub 100MB limit)
+models/videomae-violence-local/model.safetensors
+models/cctv_gun_detector.pt
+
+# Data & Outputs
+dataset/
+training_log.txt
+processed_videos/
+runs/
+
+# Runtime data (auto-generated)
+evidence/*.jpg
+evidence/thumbnails/
+audio_alerts/*

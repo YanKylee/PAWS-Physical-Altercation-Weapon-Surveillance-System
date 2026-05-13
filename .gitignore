@@ -13,7 +13,6 @@ DocumentLayout.json
 
 # Large model files (exceeds GitHub 100MB limit)
 models/videomae-violence-local/model.safetensors
-models/cctv_gun_detector.pt
 
 # Data & Outputs
 dataset/

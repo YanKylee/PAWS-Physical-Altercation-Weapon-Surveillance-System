@@ -25,44 +25,33 @@ The project is structured into modular components to handle specific detection t
 
 ### 1. Clone the Repository
 
-```bash
-# Replace the URL below with your actual repository URL
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+```
+git clone https://github.com/YanKylee/PAWS-Physical-Altercation-Weapon-Surveillance-System.git
+cd PAWS-Physical-Altercation-Weapon-Surveillance-System
 ```
 
 ### 2. Prerequisites
 
 **Python**
-This project requires **Python 3.9 or later**. It is strongly recommended to use a virtual environment.
+This project requires [Python 3.9 or later](https://www.python.org/downloads/). It is strongly recommended to use a virtual environment.
 
-```bash
+```
 python -m venv venv
-
-# Windows
 venv\Scripts\activate
-
-# macOS / Linux
-source venv/bin/activate
 ```
 
 **CUDA (Recommended)**
-For real-time performance, an NVIDIA GPU with **CUDA 11.8 or later** is highly recommended. CPU-only mode will work but will be significantly slower.
+For optimal performance, an NVIDIA GPU with [CUDA 11.8 or later](https://developer.nvidia.com/cuda-downloads) is recommended.
 
-Check your CUDA version:
-```bash
-nvidia-smi
+Install the correct PyTorch version for your hardware from the [Official PyTorch website](https://pytorch.org/get-started/locally/). Example:
 ```
-
-Install the correct PyTorch version for your CUDA setup from [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). Example for CUDA 11.8:
-```bash
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 ```
 
 **Python Dependencies**
 
 Install all required packages:
-```bash
+```
 pip install ultralytics opencv-python customtkinter pillow pygame transformers
 ```
 
@@ -70,7 +59,7 @@ pip install ultralytics opencv-python customtkinter pillow pygame transformers
 
 ### 3. Models
 
-Due to GitHub's file size limits, two large model files are **not included** in this repository and must be downloaded separately and placed into the `models/` folder.
+Due to GitHub's file size limits, the VideoMAE model file is **not included** in this repository and must be downloaded separately and placed into the `models/` folder.
 
 #### VideoMAE Violence Classifier (`models/videomae-violence-local/`)
 This is the core violence detection model (VideoMAEForVideoClassification). It must be downloaded and placed inside the `models/videomae-violence-local/` directory. The folder must contain these three files:
@@ -78,14 +67,10 @@ This is the core violence detection model (VideoMAEForVideoClassification). It m
 - `config.json`
 - `preprocessor_config.json`
 
-> 📥 **Download link:** [<!-- Add your download link here -->]()
-
-#### CCTV Gun Detector (`models/cctv_gun_detector.pt`)
-This is the custom-trained YOLOv8 gun detection model (~52MB). Place it directly inside the `models/` folder.
-
-> 📥 **Download link:** [<!-- Add your download link here -->]()
+> 📥 **Download link:** [https://drive.google.com/drive/folders/1wiuMf-xOhmmsg9hlOkcnG53-DRUTx1zK?usp=sharing]()
 
 **Included models** (already in the repository, no download needed):
+- `models/cctv_gun_detector.pt` — Gun detection
 - `models/yolov8s.pt` — Human detection
 - `models/knife_detector_adamw.pt` — Knife detection
 - `models/mobilenet_violence_prefilter.pt` — Violence pre-filter (CNN)
@@ -107,7 +92,7 @@ models/
 
 ### 4. Run the Application
 
-```bash
+```
 python main_ui.py
 ```
 

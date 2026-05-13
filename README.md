@@ -27,6 +27,9 @@ The project is structured into modular components to handle specific detection t
 
 ```
 git clone https://github.com/YanKylee/PAWS-Physical-Altercation-Weapon-Surveillance-System.git
+```
+
+```
 cd PAWS-Physical-Altercation-Weapon-Surveillance-System
 ```
 

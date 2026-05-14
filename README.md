@@ -4,24 +4,7 @@
 
 ### 📄 Documentation
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="./docs">
-        <img src="https://img.shields.io/badge/📘_User_System_Manual-PDF-blue?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="User System Manual"/>
-      </a>
-      <br/>
-      <sub>Complete guide for operating the PAWS surveillance interface</sub>
-    </td>
-    <td align="center">
-      <a href="./docs">
-        <img src="https://img.shields.io/badge/📗_Installation_Guide-PDF-green?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Installation Guide"/>
-      </a>
-      <br/>
-      <sub>Step-by-step setup and deployment instructions</sub>
-    </td>
-  </tr>
-</table>
+For the User System Manual and Installation Guide, please refer to the [Documentation](./docs) folder.
 
 ---
 

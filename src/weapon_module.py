@@ -4,8 +4,8 @@ import torch
 from ultralytics import YOLO
 from huggingface_hub import hf_hub_download
 
-# Resolve model paths relative to THIS file's directory
-_DIR = os.path.dirname(os.path.abspath(__file__))
+# Resolve model paths relative to the PROJECT ROOT (one level up from src/)
+_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 class WeaponTracker:

@@ -5,9 +5,13 @@ import cv2
 import threading
 import time
 import os
+import sys
 import json
 import shutil
 import pygame
+
+# Resolve project root (one level up from src/)
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 from human_gate import HumanGate
 from weapon_module import WeaponTracker
@@ -16,12 +20,12 @@ from altercation_module import AltercationTracker
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
-_CONFIG_FILE = "config.json"
-_AUDIO_DIR = "audio_alerts"
+_CONFIG_FILE = os.path.join(_ROOT, "config.json")
+_AUDIO_DIR = os.path.join(_ROOT, "audio_alerts")
 os.makedirs(_AUDIO_DIR, exist_ok=True)
 pygame.mixer.init()
 
-_EVIDENCE_DIR = "evidence"
+_EVIDENCE_DIR = os.path.join(_ROOT, "evidence")
 _EVIDENCE_HISTORY = os.path.join(_EVIDENCE_DIR, "history.json")
 os.makedirs(_EVIDENCE_DIR, exist_ok=True)
 if not os.path.exists(_EVIDENCE_HISTORY):

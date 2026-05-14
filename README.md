@@ -1,4 +1,29 @@
-# PAWS:Physical Altercation and Weapon Surveillance System
+# PAWS: Physical Altercation and Weapon Surveillance System
+
+---
+
+### 📄 Documentation
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="./docs">
+        <img src="https://img.shields.io/badge/📘_User_System_Manual-PDF-blue?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="User System Manual"/>
+      </a>
+      <br/>
+      <sub>Complete guide for operating the PAWS surveillance interface</sub>
+    </td>
+    <td align="center">
+      <a href="./docs">
+        <img src="https://img.shields.io/badge/📗_Installation_Guide-PDF-green?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Installation Guide"/>
+      </a>
+      <br/>
+      <sub>Step-by-step setup and deployment instructions</sub>
+    </td>
+  </tr>
+</table>
+
+---
 
 PAWS is an automated surveillance application designed to detect physical altercations and lethal weapons in video feeds. By utilizing computer vision and deep learning models, the system provides alerts for security monitoring, enhancing safety and response times in various environments.
 
@@ -14,10 +39,35 @@ PAWS is an automated surveillance application designed to detect physical alterc
 
 The project is structured into modular components to handle specific detection tasks:
 
-1. **Main UI (`main_ui.py`)**: The central application hub that manages the graphical interface, video file ingestion, and coordinates between detection modules.
-2. **Human Gate (`human_gate.py`)**: Lightweight human detector that runs on every frame. If no humans are detected, all heavy models are skipped entirely to save GPU resources.
-3. **Weapon Module (`weapon_module.py`)**: Employs a two-stage detection process. It first receives human bounding boxes from the Human Gate and then runs knife and gun detection on those specific cropped regions in a single GPU batch.
-4. **Altercation Module (`altercation_module.py`)**: Uses a VideoMAE video transformer with a MobileNetV2 CNN pre-filter and ROI-focused optical flow to detect sustained physical violence while suppressing false positives like hugging.
+1. **Main UI (`src/main_ui.py`)**: The central application hub that manages the graphical interface, video file ingestion, and coordinates between detection modules.
+2. **Human Gate (`src/human_gate.py`)**: Lightweight human detector that runs on every frame. If no humans are detected, all heavy models are skipped entirely to save GPU resources.
+3. **Weapon Module (`src/weapon_module.py`)**: Employs a two-stage detection process. It first receives human bounding boxes from the Human Gate and then runs knife and gun detection on those specific cropped regions in a single GPU batch.
+4. **Altercation Module (`src/altercation_module.py`)**: Uses a VideoMAE video transformer with a MobileNetV2 CNN pre-filter and ROI-focused optical flow to detect sustained physical violence while suppressing false positives like hugging.
+
+---
+
+## Project Structure
+
+```
+PAWS/
+├── src/                          # Source code
+│   ├── main_ui.py                # Main application & GUI
+│   ├── human_gate.py             # Human detection gate
+│   ├── weapon_module.py          # Weapon (knife + gun) detection
+│   └── altercation_module.py     # Physical altercation detection
+├── models/                       # Pre-trained model weights
+│   ├── videomae-violence-local/  # VideoMAE transformer (download required)
+│   ├── yolov8s.pt                # Human detection
+│   ├── knife_detector_adamw.pt   # Knife detection
+│   ├── mobilenet_violence_prefilter.pt  # Violence pre-filter (CNN)
+│   └── cctv_gun_detector.pt      # Gun detection
+├── docs/                         # Documentation (PDF manuals)
+├── audio_alerts/                 # Custom alert sounds
+├── evidence/                     # Auto-captured detection snapshots
+├── README.md
+├── LICENSE
+└── LICENSE-GPL
+```
 
 ---
 
@@ -96,7 +146,7 @@ models/
 ### 4. Run the Application
 
 ```
-python main_ui.py
+python src/main_ui.py
 ```
 
 Once launched:

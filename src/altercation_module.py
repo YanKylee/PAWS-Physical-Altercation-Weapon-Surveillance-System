@@ -8,8 +8,8 @@ import torchvision.transforms as transforms
 import torchvision.models as models
 import torch.nn as nn
 
-# Resolve model paths relative to THIS file's directory
-_DIR = os.path.dirname(os.path.abspath(__file__))
+# Resolve model paths relative to the PROJECT ROOT (one level up from src/)
+_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # HuggingFace model ID — pre-trained violence vs non-violence classifier (98% accuracy)
